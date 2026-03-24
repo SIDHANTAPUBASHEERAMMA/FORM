@@ -1,287 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MLTS6X9C');</script>
+<!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1KLQGXR7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1KLQGXR7K');
+</script>
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You — LUXE STORE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Prevent re-indexing of confirmation page -->
+  <meta name="robots" content="noindex, nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #0d0c0a;
-      --surface: #151412;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --cream: #f5f0e8;
-      --muted: #6b6660;
-      --text: #e8e2d8;
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#faf8f5;
+      --dark:#0f0e0c;
+      --accent:#b8860b;
+      --accent2:#d4a017;
+      --accent-light:#f0d070;
+      --text:#2c2a26;
+      --muted:#7a7570;
+      --border:#e8e2d8;
+      --white:#ffffff;
+      --green:#2e7d32;
     }
-
-    html, body {
-      height: 100%;
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ── BACKGROUND ── */
-    .bg-layer {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background: radial-gradient(ellipse 70% 60% at 50% 50%, #1c1508 0%, var(--bg) 70%);
-    }
-    .bg-word {
-      position: fixed; left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(10rem, 28vw, 30rem);
-      font-weight: 300; color: rgba(201,168,76,0.03);
-      white-space: nowrap; user-select: none; z-index: 0;
-      letter-spacing: -0.02em;
-    }
+    html,body{min-height:100%;font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 
     /* ── CONFETTI ── */
-    .confetti-container {
-      position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+    #confetti{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .dot{
+      position:absolute;top:-16px;border-radius:50%;
+      animation:fall linear infinite;
     }
-    .confetti-dot {
-      position: absolute; border-radius: 50%;
-      animation: fall linear infinite;
-    }
-    @keyframes fall {
-      0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0.9; }
-      100% { transform: translateY(105vh) rotate(400deg); opacity: 0; }
+    @keyframes fall{
+      0%  {transform:translateY(0) rotate(0deg);  opacity:.85}
+      100%{transform:translateY(105vh) rotate(500deg);opacity:0}
     }
 
-    /* ── MAIN LAYOUT ── */
-    main {
-      position: relative; z-index: 2;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 3rem 2rem;
+    /* ── LAYOUT ── */
+    main{
+      position:relative;z-index:1;
+      min-height:100vh;
+      display:grid;grid-template-columns:1fr 1fr;
     }
 
-    /* ── CHECK ICON ── */
-    .check-wrap {
-      position: relative; margin-bottom: 2.5rem;
-      animation: popIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    /* LEFT PANEL */
+    .left{
+      background:var(--dark);
+      display:flex;flex-direction:column;justify-content:center;
+      padding:4rem 4rem;position:relative;overflow:hidden;
     }
-    .check-ring {
-      width: 100px; height: 100px; border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.6rem;
-      box-shadow: 0 0 40px rgba(201,168,76,0.2), inset 0 0 20px rgba(201,168,76,0.05);
+    .left-bg{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 80% 70% at 30% 60%,#201800 0%,var(--dark) 70%);
     }
-    .check-pulse {
-      position: absolute; inset: -12px; border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.2);
-      animation: pulse 2s ease-out infinite;
+    .left-content{position:relative;z-index:2}
+    .brand{
+      font-family:'Playfair Display',serif;
+      font-size:1.6rem;font-weight:700;color:#fff;
+      margin-bottom:3.5rem;letter-spacing:.05em
     }
-    @keyframes pulse {
-      0%   { transform: scale(1);   opacity: 0.7; }
-      100% { transform: scale(1.5); opacity: 0; }
+    .brand span{color:var(--accent-light)}
+    .check-wrap{
+      width:80px;height:80px;border-radius:50%;
+      border:1.5px solid var(--accent);
+      display:flex;align-items:center;justify-content:center;
+      font-size:2rem;margin-bottom:2rem;
+      box-shadow:0 0 40px rgba(184,134,11,.25);
+      animation:popIn .7s cubic-bezier(.34,1.56,.64,1) both;
     }
-    @keyframes popIn {
-      from { transform: scale(0.3); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
+    @keyframes popIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+    .left-eyebrow{
+      font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:.9rem;
+      animation:fadeUp .5s .2s ease both;
+    }
+    .left-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.2rem,3.5vw,3.6rem);font-weight:700;
+      color:#fff;line-height:1.1;margin-bottom:1rem;
+      animation:fadeUp .5s .3s ease both;
+    }
+    .left-title em{font-style:italic;color:var(--accent-light)}
+    .left-sub{
+      font-size:.95rem;line-height:1.8;
+      color:rgba(255,255,255,.5);max-width:380px;margin-bottom:2.5rem;
+      animation:fadeUp .5s .4s ease both;
+    }
+    .left-divider{
+      width:60px;height:2px;
+      background:linear-gradient(90deg,var(--accent),transparent);
+      margin-bottom:2rem;
+      animation:fadeUp .5s .45s ease both;
+    }
+    .left-btns{
+      display:flex;gap:1rem;flex-wrap:wrap;
+      animation:fadeUp .5s .5s ease both;
+    }
+    .btn-gold{
+      padding:.82rem 2.2rem;background:var(--accent);color:#fff;
+      font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+      border:none;cursor:pointer;font-family:'Outfit',sans-serif;
+      text-decoration:none;display:inline-block;transition:background .25s
+    }
+    .btn-gold:hover{background:var(--accent2)}
+    .btn-outline-w{
+      padding:.82rem 2.2rem;background:none;color:rgba(255,255,255,.7);
+      font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+      border:1.5px solid rgba(255,255,255,.2);cursor:pointer;
+      font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s
+    }
+    .btn-outline-w:hover{border-color:var(--accent);color:var(--accent-light)}
+
+    /* RIGHT PANEL */
+    .right{
+      background:var(--white);
+      display:flex;flex-direction:column;justify-content:center;
+      padding:4rem;
+    }
+    .right-inner{max-width:480px;width:100%}
+
+    .summary-title{
+      font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--muted);margin-bottom:1.4rem
     }
 
-    /* ── TYPOGRAPHY ── */
-    .tag {
-      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.2rem;
-      animation: fadeUp 0.6s 0.25s ease both;
+    /* SUBMISSION DETAILS CARD */
+    .detail-card{
+      border:1.5px solid var(--border);background:var(--bg);
+      margin-bottom:1.5rem;overflow:hidden;
+      animation:fadeUp .5s .35s ease both;
     }
-    .title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300;
-      color: var(--cream); line-height: 1.05; margin-bottom: 0.5rem;
-      animation: fadeUp 0.6s 0.35s ease both;
+    .detail-card-head{
+      background:var(--dark);padding:.75rem 1.2rem;
+      display:flex;align-items:center;justify-content:space-between
     }
-    .title em { font-style: italic; color: var(--gold); }
-
-    .subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 300;
-      color: var(--gold-light); margin-bottom: 2rem; font-style: italic;
-      animation: fadeUp 0.6s 0.4s ease both;
+    .dch-left{
+      font-size:.7rem;font-weight:600;letter-spacing:.12em;
+      text-transform:uppercase;color:rgba(255,255,255,.6)
     }
-
-    .divider {
-      width: 80px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 2rem;
-      animation: fadeUp 0.6s 0.45s ease both;
+    .dch-ref{
+      font-size:.82rem;font-weight:700;color:var(--accent-light);
+      letter-spacing:.06em;font-family:'Playfair Display',serif
     }
-
-    .desc {
-      font-size: 0.95rem; line-height: 1.9; color: var(--muted);
-      max-width: 480px; margin: 0 auto 2.8rem;
-      animation: fadeUp 0.6s 0.5s ease both;
+    .detail-rows{display:flex;flex-direction:column}
+    .detail-row{
+      display:flex;align-items:flex-start;
+      padding:.85rem 1.2rem;border-bottom:1px solid var(--border)
     }
-
-    /* ── INFO CARDS ── */
-    .info-cards {
-      display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 2.8rem;
-      animation: fadeUp 0.6s 0.55s ease both;
+    .detail-row:last-child{border-bottom:none}
+    .dr-label{
+      min-width:110px;font-size:.7rem;font-weight:600;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--muted);padding-top:.05rem
     }
-    .info-card {
-      background: rgba(201,168,76,0.05);
-      border: 1px solid rgba(201,168,76,0.15);
-      padding: 1rem 1.4rem; min-width: 160px;
-      display: flex; flex-direction: column; gap: 0.3rem; align-items: center;
-    }
-    .info-card .ic-icon { font-size: 1.4rem; }
-    .info-card .ic-label {
-      font-size: 0.65rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .info-card .ic-val {
-      font-size: 0.85rem; color: var(--text); font-weight: 500;
+    .dr-val{font-size:.88rem;color:var(--text);word-break:break-word}
+    .dr-val.mono{
+      font-family:monospace;font-size:.82rem;
+      background:rgba(184,134,11,.08);padding:.15rem .45rem;
+      border:1px solid rgba(184,134,11,.2);color:var(--accent)
     }
 
-    /* ── BUTTONS ── */
-    .btns {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      animation: fadeUp 0.6s 0.65s ease both;
+    /* WHAT NEXT STEPS */
+    .steps{
+      display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;
+      animation:fadeUp .5s .5s ease both;
     }
-    .btn-primary {
-      padding: 0.9rem 2.4rem;
-      background: var(--gold); color: var(--bg);
-      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-      border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
-      font-weight: 500; text-decoration: none;
-      transition: background 0.3s; display: inline-block;
+    .step{
+      display:flex;gap:1rem;align-items:flex-start;
+      padding:1rem 1.2rem;
+      background:var(--bg);border:1px solid var(--border);
     }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline {
-      padding: 0.9rem 2.4rem;
-      background: none; color: var(--text);
-      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
-      font-family: 'DM Sans', sans-serif; text-decoration: none;
-      transition: all 0.3s; display: inline-block;
+    .step-num{
+      min-width:28px;height:28px;border-radius:50%;
+      background:var(--dark);color:#fff;
+      font-size:.72rem;font-weight:700;
+      display:flex;align-items:center;justify-content:center
     }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .step-title{font-size:.82rem;font-weight:600;color:var(--dark);margin-bottom:.2rem}
+    .step-desc{font-size:.78rem;color:var(--muted);line-height:1.6}
 
-    /* ── FOOTER NOTE ── */
-    .footer-note {
-      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em;
-      white-space: nowrap; z-index: 2;
-      animation: fadeUp 0.6s 0.8s ease both;
+    /* TRACKING INFO BOX */
+    .track-box{
+      background:#fff8e1;border:1px solid rgba(184,134,11,.3);
+      padding:1rem 1.2rem;margin-bottom:1.5rem;
+      font-size:.8rem;line-height:1.7;color:#5a4500;
+      animation:fadeUp .5s .55s ease both;
     }
-    .footer-note a { color: var(--gold); text-decoration: none; }
-    .footer-note a:hover { text-decoration: underline; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .track-box strong{color:var(--accent)}
+    .track-url{
+      font-family:monospace;font-size:.72rem;
+      background:rgba(184,134,11,.1);padding:.3rem .6rem;
+      margin-top:.5rem;word-break:break-all;display:block;
+      border-left:3px solid var(--accent);
     }
 
-    @media (max-width: 480px) {
-      .info-cards { flex-direction: column; align-items: center; }
-      .info-card { width: 100%; max-width: 280px; }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      main{grid-template-columns:1fr}
+      .left{padding:3rem 2rem;min-height:auto}
+      .right{padding:3rem 2rem}
+      .right-inner{max-width:100%}
     }
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLTS6X9C"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-  <!-- Background -->
-  <div class="bg-layer"></div>
-  <div class="bg-word">THANK YOU</div>
+<div id="confetti"></div>
 
-  <!-- Confetti -->
-  <div class="confetti-container" id="confetti"></div>
-
-  <!-- Main Content -->
-  <main>
-
-    <div class="check-wrap">
-      <div class="check-ring">✓</div>
-      <div class="check-pulse"></div>
-    </div>
-
-    <div class="tag">Message Received</div>
-
-    <h1 class="title">
-      Thank You,<br>
-      <em id="customerName">Valued Guest</em>
-    </h1>
-
-    <p class="subtitle">Your enquiry is in good hands.</p>
-
-    <div class="divider"></div>
-
-    <p class="desc">
-      Our concierge team has received your message and will respond within <strong style="color:var(--text)">24 hours</strong> on business days. We appreciate you choosing Luxe Store.
-    </p>
-
-    <div class="info-cards">
-      <div class="info-card">
-        <span class="ic-icon">📧</span>
-        <span class="ic-label">Confirmation sent to</span>
-        <span class="ic-val" id="customerEmail">your email</span>
-      </div>
-      <div class="info-card">
-        <span class="ic-icon">⏱️</span>
-        <span class="ic-label">Response time</span>
-        <span class="ic-val">Within 24 hours</span>
-      </div>
-      <div class="info-card">
-        <span class="ic-icon">📋</span>
-        <span class="ic-label">Reference ID</span>
-        <span class="ic-val" id="refId">#LX-00001</span>
+<main>
+  <!-- LEFT: Thank You message -->
+  <div class="left">
+    <div class="left-bg"></div>
+    <div class="left-content">
+      <div class="brand">LUXE<span>.</span></div>
+      <div class="check-wrap">✓</div>
+      <div class="left-eyebrow">Message Received</div>
+      <h1 class="left-title">Thank You,<br><em id="heroName">Valued Guest</em></h1>
+      <div class="left-divider"></div>
+      <p class="left-sub">Your enquiry has been received by our concierge team. We'll respond within <strong style="color:#fff">24 hours</strong> on business days.</p>
+      <div class="left-btns">
+        <a href="index.html" class="btn-gold">← Back to Store</a>
+        <a href="index.html#products" class="btn-outline-w">Browse Collection</a>
       </div>
     </div>
+  </div>
 
-    <div class="btns">
-      <a href="ecommerce.html" class="btn-primary">← Back to Store</a>
-      <a href="ecommerce.html#products" class="btn-outline">Browse Collection</a>
+  <!-- RIGHT: Submission details + tracking -->
+  <div class="right">
+    <div class="right-inner">
+      <p class="summary-title">Submission Summary</p>
+
+      <!-- Detail card -->
+      <div class="detail-card">
+        <div class="detail-card-head">
+          <span class="dch-left">Reference ID</span>
+          <span class="dch-ref" id="refDisplay">—</span>
+        </div>
+        <div class="detail-rows">
+          <div class="detail-row">
+            <span class="dr-label">Name</span>
+            <span class="dr-val" id="dName">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="dr-label">Email</span>
+            <span class="dr-val" id="dEmail">—</span>
+          </div>
+          <div class="detail-row" id="row-phone" style="display:none">
+            <span class="dr-label">Phone</span>
+            <span class="dr-val" id="dPhone">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="dr-label">Topic</span>
+            <span class="dr-val" id="dTopic">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="dr-label">Submitted</span>
+            <span class="dr-val" id="dTime">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="dr-label">Source</span>
+            <span class="dr-val mono" id="dSource">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tracking URL info -->
+      <div class="track-box">
+        <strong>🔍 Tracking URL</strong> — This page has a unique URL so you can track every submission:
+        <span class="track-url" id="trackUrl">loading…</span>
+      </div>
+
+      <!-- What happens next -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Confirmation Email Sent</div>
+            <div class="step-desc">A copy of your enquiry has been sent to your inbox for your records.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Team Review — Within 4 Hours</div>
+            <div class="step-desc">Our concierge team will review your message and prepare a personalised response.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Personal Reply — Within 24 Hours</div>
+            <div class="step-desc">You'll receive a detailed reply at your provided email address.</div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</main>
 
-  </main>
+<script>
+  /* ── READ URL PARAMS ── */
+  const p = new URLSearchParams(window.location.search);
 
-  <p class="footer-note">
-    Need help? Email us at <a href="mailto:concierge@luxestore.com">concierge@luxestore.com</a>
-  </p>
+  const ref     = p.get('ref')        || 'N/A';
+  const name    = p.get('name')       || 'Valued Guest';
+  const email   = p.get('email')      || '—';
+  const phone   = p.get('phone')      || '';
+  const topic   = p.get('topic')      || '—';
+  const ts      = p.get('ts')         || '';
+  const source  = p.get('utm_source') || 'direct';
+  const medium  = p.get('utm_medium') || '—';
+  const campaign= p.get('utm_campaign')|| '—';
 
-  <script>
-    // ── Read URL params passed from contact form ──
-    const params = new URLSearchParams(window.location.search);
-    const name  = params.get('name');
-    const email = params.get('email');
+  /* Populate left panel */
+  const firstName = name.split(' ')[0];
+  document.getElementById('heroName').textContent = firstName;
 
-    if (name)  document.getElementById('customerName').textContent  = decodeURIComponent(name);
-    if (email) document.getElementById('customerEmail').textContent = decodeURIComponent(email);
+  /* Populate detail card */
+  document.getElementById('refDisplay').textContent = ref;
+  document.getElementById('dName').textContent      = name;
+  document.getElementById('dEmail').textContent     = email;
+  document.getElementById('dTopic').textContent     = topicLabel(topic);
+  document.getElementById('dSource').textContent    = source + ' / ' + medium + ' / ' + campaign;
 
-    // ── Generate random ref ID ──
-    const ref = '#LX-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-    document.getElementById('refId').textContent = ref;
+  if (phone) {
+    document.getElementById('dPhone').textContent = phone;
+    document.getElementById('row-phone').style.display = 'flex';
+  }
 
-    // ── Confetti ──
-    const colors = ['#c9a84c','#e8c97a','#f5f0e8','#8b4513','#d4af6a','#ffffff'];
-    const container = document.getElementById('confetti');
-    for (let i = 0; i < 70; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'confetti-dot';
-      const size = Math.random() * 9 + 4;
-      dot.style.cssText = `
-        left: ${Math.random() * 100}vw;
-        width: ${size}px;
-        height: ${size}px;
-        background: ${colors[Math.floor(Math.random() * colors.length)]};
-        border-radius: ${Math.random() > 0.45 ? '50%' : '2px'};
-        animation-duration: ${Math.random() * 4 + 2.5}s;
-        animation-delay: ${Math.random() * 3}s;
-        opacity: ${Math.random() * 0.6 + 0.3};
-      `;
-      container.appendChild(dot);
-    }
-  </script>
+  if (ts) {
+    try {
+      const d = new Date(ts);
+      document.getElementById('dTime').textContent =
+        d.toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'}) +
+        ' at ' +
+        d.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
+    } catch(_) { document.getElementById('dTime').textContent = ts; }
+  }
+
+  /* Show full tracking URL */
+  document.getElementById('trackUrl').textContent = window.location.href;
+
+  function topicLabel(val) {
+    const map = {
+      order:'Order & Delivery', product:'Product Enquiry',
+      returns:'Returns & Exchanges', styling:'Personal Styling',
+      press:'Press & Collaborations', other:'Other'
+    };
+    return map[val] || val;
+  }
+
+  /* ── CONFETTI ── */
+  const colors = ['#b8860b','#d4a017','#f0d070','#2c2a26','#e8e2d8','#ffffff'];
+  const container = document.getElementById('confetti');
+  for (let i = 0; i < 65; i++) {
+    const d   = document.createElement('div');
+    d.className = 'dot';
+    const sz  = Math.random() * 9 + 4;
+    const dur = (Math.random() * 4 + 2.5).toFixed(2);
+    const del = (Math.random() * 3).toFixed(2);
+    d.style.cssText = `
+      left:${Math.random()*100}vw;
+      width:${sz}px;height:${sz}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:${Math.random()>.45?'50%':'3px'};
+      animation-duration:${dur}s;
+      animation-delay:${del}s;
+      opacity:${(Math.random()*.5+.3).toFixed(2)};
+    `;
+    container.appendChild(d);
+  }
+</script>
 </body>
 </html>
