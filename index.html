@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MLTS6X9C');</script>
-<!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1KLQGXR7K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z1KLQGXR7K');
-</script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LUXE STORE — Premium Ecommerce</title>
@@ -450,10 +435,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLTS6X9C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
   <!-- ── NAVIGATION ── -->
   <nav>
@@ -634,7 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="contact-icon">✉️</div>
             <div>
               <div class="contact-item-label">Email</div>
-              <div class="contact-item-val">concierge@luxestore.com</div>
+              <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="42212d2c212b27302527022e373a2731362d30276c212d2f">[email&#160;protected]</a></div>
             </div>
           </div>
           <div class="contact-item">
@@ -729,77 +710,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
-  <!-- ── THANK YOU PAGE OVERLAY ── -->
-  <div id="thankyou-page">
-    <div class="ty-confetti" id="confettiContainer"></div>
-    <div class="ty-icon">✓</div>
-    <div class="ty-tag">Message Received</div>
-    <h1 class="ty-title">
-      Thank You,<br>
-      <em id="ty-name-display">Valued Guest</em>
-    </h1>
-    <div class="ty-divider"></div>
-    <p class="ty-desc">
-      Your message has been received by our concierge team. We typically respond within 24 hours on business days. We look forward to assisting you.
-    </p>
-    <div class="ty-btns">
-      <button class="btn-primary" onclick="closeThankYou()">Back to Store</button>
-      <button class="btn-outline" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'}); closeThankYou()">Browse Collection</button>
-    </div>
-  </div>
+
 
   <!-- ── TOAST ── -->
   <div class="toast" id="toast"></div>
 
-  <script>
-    // ── FORM SUBMIT ──
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ── FORM SUBMIT — redirects to separate thankyou.html ──
     function handleSubmit(e) {
       e.preventDefault();
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
+      const email = document.getElementById('email').value.trim();
       const fullName = fname + (lname ? ' ' + lname : '');
 
-      // Update thank you name
-      document.getElementById('ty-name-display').textContent = fullName || 'Valued Guest';
-
-      // Reset form
-      e.target.reset();
-
-      // Show thank you page
-      const ty = document.getElementById('thankyou-page');
-      ty.classList.add('show');
-      document.body.style.overflow = 'hidden';
-
-      // Spawn confetti
-      spawnConfetti();
-    }
-
-    function closeThankYou() {
-      const ty = document.getElementById('thankyou-page');
-      ty.classList.remove('show');
-      document.body.style.overflow = '';
-      document.getElementById('confettiContainer').innerHTML = '';
-    }
-
-    // ── CONFETTI ──
-    function spawnConfetti() {
-      const container = document.getElementById('confettiContainer');
-      container.innerHTML = '';
-      const colors = ['#c9a84c', '#e8c97a', '#f5f0e8', '#8b4513', '#ffffff'];
-      for (let i = 0; i < 55; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'confetti-dot';
-        dot.style.left = Math.random() * 100 + 'vw';
-        dot.style.top = '-10px';
-        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
-        dot.style.width = (Math.random() * 8 + 4) + 'px';
-        dot.style.height = dot.style.width;
-        dot.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-        dot.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        dot.style.animationDelay = (Math.random() * 2) + 's';
-        dot.style.opacity = Math.random() * 0.7 + 0.3;
-        container.appendChild(dot);
-      }
+      // Redirect to separate Thank You page, passing name & email as URL params
+      const params = new URLSearchParams({
+        name: fullName || 'Valued Guest',
+        email: email
+      });
+      window.location.href = 'thankyou.html?' + params.toString();
     }
 
     // ── TOAST ──
@@ -822,12 +752,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.product-card, .cat-card, .contact-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
-</body>
-</html>
+    document.querySelectorAll('.product-card, .cat-card, .contact-
