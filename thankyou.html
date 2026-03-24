@@ -1,394 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MLTS6X9C');</script>
-<!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1KLQGXR7K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z1KLQGXR7K');
-</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thank You — LUXE STORE</title>
-  <!-- Prevent re-indexing of confirmation page -->
   <meta name="robots" content="noindex, nofollow"/>
+  <title>Thank You — LUXE STORE</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --bg:#faf8f5;
-      --dark:#0f0e0c;
-      --accent:#b8860b;
-      --accent2:#d4a017;
-      --accent-light:#f0d070;
-      --text:#2c2a26;
-      --muted:#7a7570;
-      --border:#e8e2d8;
-      --white:#ffffff;
-      --green:#2e7d32;
+      --bg:#faf8f5;--dark:#0f0e0c;--accent:#b8860b;--accent2:#d4a017;
+      --accent-light:#f0d070;--text:#2c2a26;--muted:#7a7570;
+      --border:#e8e2d8;--white:#ffffff;
     }
     html,body{min-height:100%;font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 
-    /* ── CONFETTI ── */
+    /* CONFETTI */
     #confetti{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-    .dot{
-      position:absolute;top:-16px;border-radius:50%;
-      animation:fall linear infinite;
-    }
-    @keyframes fall{
-      0%  {transform:translateY(0) rotate(0deg);  opacity:.85}
-      100%{transform:translateY(105vh) rotate(500deg);opacity:0}
-    }
+    .cdot{position:absolute;top:-14px;animation:cffall linear infinite}
+    @keyframes cffall{0%{transform:translateY(0) rotate(0deg);opacity:.9}100%{transform:translateY(105vh) rotate(500deg);opacity:0}}
 
-    /* ── LAYOUT ── */
-    main{
-      position:relative;z-index:1;
-      min-height:100vh;
-      display:grid;grid-template-columns:1fr 1fr;
-    }
+    /* LAYOUT */
+    .ty-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;position:relative;z-index:1}
 
-    /* LEFT PANEL */
-    .left{
-      background:var(--dark);
-      display:flex;flex-direction:column;justify-content:center;
-      padding:4rem 4rem;position:relative;overflow:hidden;
-    }
-    .left-bg{
-      position:absolute;inset:0;
-      background:radial-gradient(ellipse 80% 70% at 30% 60%,#201800 0%,var(--dark) 70%);
-    }
-    .left-content{position:relative;z-index:2}
-    .brand{
-      font-family:'Playfair Display',serif;
-      font-size:1.6rem;font-weight:700;color:#fff;
-      margin-bottom:3.5rem;letter-spacing:.05em
-    }
-    .brand span{color:var(--accent-light)}
-    .check-wrap{
-      width:80px;height:80px;border-radius:50%;
-      border:1.5px solid var(--accent);
-      display:flex;align-items:center;justify-content:center;
-      font-size:2rem;margin-bottom:2rem;
-      box-shadow:0 0 40px rgba(184,134,11,.25);
-      animation:popIn .7s cubic-bezier(.34,1.56,.64,1) both;
-    }
+    /* LEFT */
+    .ty-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:4rem;position:relative;overflow:hidden}
+    .ty-left-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 30% 60%,#201800,var(--dark))}
+    .ty-lc{position:relative;z-index:2}
+    .ty-brand{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:3rem;letter-spacing:.05em}
+    .ty-brand span{color:var(--accent-light)}
+    .ty-check{width:84px;height:84px;border-radius:50%;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--accent-light);margin-bottom:2rem;box-shadow:0 0 40px rgba(184,134,11,.3);animation:popIn .7s cubic-bezier(.34,1.56,.64,1) both}
     @keyframes popIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
-    .left-eyebrow{
-      font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-      color:var(--accent);margin-bottom:.9rem;
-      animation:fadeUp .5s .2s ease both;
-    }
-    .left-title{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.2rem,3.5vw,3.6rem);font-weight:700;
-      color:#fff;line-height:1.1;margin-bottom:1rem;
-      animation:fadeUp .5s .3s ease both;
-    }
-    .left-title em{font-style:italic;color:var(--accent-light)}
-    .left-sub{
-      font-size:.95rem;line-height:1.8;
-      color:rgba(255,255,255,.5);max-width:380px;margin-bottom:2.5rem;
-      animation:fadeUp .5s .4s ease both;
-    }
-    .left-divider{
-      width:60px;height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent);
-      margin-bottom:2rem;
-      animation:fadeUp .5s .45s ease both;
-    }
-    .left-btns{
-      display:flex;gap:1rem;flex-wrap:wrap;
-      animation:fadeUp .5s .5s ease both;
-    }
-    .btn-gold{
-      padding:.82rem 2.2rem;background:var(--accent);color:#fff;
-      font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-      border:none;cursor:pointer;font-family:'Outfit',sans-serif;
-      text-decoration:none;display:inline-block;transition:background .25s
-    }
+    .ty-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;animation:fadeUp .5s .2s ease both}
+    .ty-h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem;animation:fadeUp .5s .3s ease both}
+    .ty-h1 em{font-style:italic;color:var(--accent-light)}
+    .ty-sub{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.5);max-width:360px;margin-bottom:2.5rem;animation:fadeUp .5s .4s ease both}
+    .ty-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin-bottom:2rem;animation:fadeUp .5s .45s ease both}
+    .ty-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .5s .5s ease both}
+    .btn-gold{padding:.82rem 2.2rem;background:var(--accent);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:background .25s}
     .btn-gold:hover{background:var(--accent2)}
-    .btn-outline-w{
-      padding:.82rem 2.2rem;background:none;color:rgba(255,255,255,.7);
-      font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-      border:1.5px solid rgba(255,255,255,.2);cursor:pointer;
-      font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s
-    }
-    .btn-outline-w:hover{border-color:var(--accent);color:var(--accent-light)}
-
-    /* RIGHT PANEL */
-    .right{
-      background:var(--white);
-      display:flex;flex-direction:column;justify-content:center;
-      padding:4rem;
-    }
-    .right-inner{max-width:480px;width:100%}
-
-    .summary-title{
-      font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-      color:var(--muted);margin-bottom:1.4rem
-    }
-
-    /* SUBMISSION DETAILS CARD */
-    .detail-card{
-      border:1.5px solid var(--border);background:var(--bg);
-      margin-bottom:1.5rem;overflow:hidden;
-      animation:fadeUp .5s .35s ease both;
-    }
-    .detail-card-head{
-      background:var(--dark);padding:.75rem 1.2rem;
-      display:flex;align-items:center;justify-content:space-between
-    }
-    .dch-left{
-      font-size:.7rem;font-weight:600;letter-spacing:.12em;
-      text-transform:uppercase;color:rgba(255,255,255,.6)
-    }
-    .dch-ref{
-      font-size:.82rem;font-weight:700;color:var(--accent-light);
-      letter-spacing:.06em;font-family:'Playfair Display',serif
-    }
-    .detail-rows{display:flex;flex-direction:column}
-    .detail-row{
-      display:flex;align-items:flex-start;
-      padding:.85rem 1.2rem;border-bottom:1px solid var(--border)
-    }
-    .detail-row:last-child{border-bottom:none}
-    .dr-label{
-      min-width:110px;font-size:.7rem;font-weight:600;letter-spacing:.1em;
-      text-transform:uppercase;color:var(--muted);padding-top:.05rem
-    }
-    .dr-val{font-size:.88rem;color:var(--text);word-break:break-word}
-    .dr-val.mono{
-      font-family:monospace;font-size:.82rem;
-      background:rgba(184,134,11,.08);padding:.15rem .45rem;
-      border:1px solid rgba(184,134,11,.2);color:var(--accent)
-    }
-
-    /* WHAT NEXT STEPS */
-    .steps{
-      display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;
-      animation:fadeUp .5s .5s ease both;
-    }
-    .step{
-      display:flex;gap:1rem;align-items:flex-start;
-      padding:1rem 1.2rem;
-      background:var(--bg);border:1px solid var(--border);
-    }
-    .step-num{
-      min-width:28px;height:28px;border-radius:50%;
-      background:var(--dark);color:#fff;
-      font-size:.72rem;font-weight:700;
-      display:flex;align-items:center;justify-content:center
-    }
-    .step-title{font-size:.82rem;font-weight:600;color:var(--dark);margin-bottom:.2rem}
-    .step-desc{font-size:.78rem;color:var(--muted);line-height:1.6}
-
-    /* TRACKING INFO BOX */
-    .track-box{
-      background:#fff8e1;border:1px solid rgba(184,134,11,.3);
-      padding:1rem 1.2rem;margin-bottom:1.5rem;
-      font-size:.8rem;line-height:1.7;color:#5a4500;
-      animation:fadeUp .5s .55s ease both;
-    }
-    .track-box strong{color:var(--accent)}
-    .track-url{
-      font-family:monospace;font-size:.72rem;
-      background:rgba(184,134,11,.1);padding:.3rem .6rem;
-      margin-top:.5rem;word-break:break-all;display:block;
-      border-left:3px solid var(--accent);
-    }
-
+    .btn-wout{padding:.82rem 2.2rem;background:none;color:rgba(255,255,255,.7);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.2);cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s}
+    .btn-wout:hover{border-color:var(--accent);color:var(--accent-light)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ── RESPONSIVE ── */
+    /* RIGHT */
+    .ty-right{background:var(--white);display:flex;flex-direction:column;justify-content:center;padding:4rem;overflow-y:auto}
+    .ty-right-inner{max-width:500px;width:100%}
+    .sum-label{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem}
+
+    /* detail card */
+    .d-card{border:1.5px solid var(--border);margin-bottom:1.5rem;overflow:hidden;animation:fadeUp .5s .35s ease both}
+    .d-card-head{background:var(--dark);padding:.75rem 1.2rem;display:flex;align-items:center;justify-content:space-between}
+    .dch-l{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+    .dch-r{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--accent-light);letter-spacing:.04em}
+    .d-rows{display:flex;flex-direction:column}
+    .d-row{display:flex;align-items:flex-start;padding:.85rem 1.2rem;border-bottom:1px solid var(--border)}
+    .d-row:last-child{border-bottom:none}
+    .d-lbl{min-width:110px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:.05rem;flex-shrink:0}
+    .d-val{font-size:.88rem;color:var(--text);word-break:break-all}
+    .d-val.chip{display:inline-block;background:rgba(184,134,11,.1);border:1px solid rgba(184,134,11,.25);color:var(--accent);padding:.15rem .55rem;font-family:monospace;font-size:.8rem}
+
+    /* track box */
+    .track-box{background:#fff8e1;border:1px solid rgba(184,134,11,.3);padding:1rem 1.2rem;margin-bottom:1.5rem;animation:fadeUp .5s .5s ease both}
+    .track-title{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+    .track-url{font-family:monospace;font-size:.72rem;background:rgba(184,134,11,.08);padding:.4rem .7rem;word-break:break-all;display:block;border-left:3px solid var(--accent);color:#5a4500;margin-bottom:.6rem;line-height:1.6}
+    .copy-btn{padding:.35rem .9rem;background:var(--dark);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:background .25s}
+    .copy-btn:hover{background:var(--accent)}
+
+    /* steps */
+    .steps{display:flex;flex-direction:column;gap:.9rem;animation:fadeUp .5s .55s ease both}
+    .step{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1rem;background:var(--bg);border:1px solid var(--border)}
+    .step-num{min-width:26px;height:26px;border-radius:50%;background:var(--dark);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .step-title{font-size:.82rem;font-weight:600;color:var(--dark);margin-bottom:.2rem}
+    .step-desc{font-size:.76rem;color:var(--muted);line-height:1.6}
+
+    /* toast */
+    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:#fff;padding:.85rem 1.6rem;font-size:.82rem;font-weight:500;z-index:999;transform:translateY(80px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:.6rem}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+    /* guard */
+    #guard{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:2rem}
+    #guard.show{display:flex}
+    .guard-icon{font-size:3.5rem;margin-bottom:1rem}
+    .guard-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:.8rem}
+    .guard-p{font-size:.9rem;color:var(--muted);margin-bottom:1.8rem}
+
+    /* responsive */
     @media(max-width:900px){
-      main{grid-template-columns:1fr}
-      .left{padding:3rem 2rem;min-height:auto}
-      .right{padding:3rem 2rem}
-      .right-inner{max-width:100%}
+      .ty-wrap{grid-template-columns:1fr}
+      .ty-left{padding:3rem 2rem}
+      .ty-right{padding:2.5rem 2rem}
+      .ty-right-inner{max-width:100%}
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLTS6X9C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <div id="confetti"></div>
 
-<main>
-  <!-- LEFT: Thank You message -->
-  <div class="left">
-    <div class="left-bg"></div>
-    <div class="left-content">
-      <div class="brand">LUXE<span>.</span></div>
-      <div class="check-wrap">✓</div>
-      <div class="left-eyebrow">Message Received</div>
-      <h1 class="left-title">Thank You,<br><em id="heroName">Valued Guest</em></h1>
-      <div class="left-divider"></div>
-      <p class="left-sub">Your enquiry has been received by our concierge team. We'll respond within <strong style="color:#fff">24 hours</strong> on business days.</p>
-      <div class="left-btns">
-        <a href="index.html" class="btn-gold">← Back to Store</a>
-        <a href="index.html#products" class="btn-outline-w">Browse Collection</a>
+<!-- Guard shown when opened directly without params -->
+<div id="guard">
+  <div class="guard-icon">🛍️</div>
+  <h1 class="guard-title">Nothing to see here!</h1>
+  <p class="guard-p">This page appears only after submitting the contact form.</p>
+  <a href="luxe-store.html" class="btn-gold">← Go to Store</a>
+</div>
+
+<div class="ty-wrap" id="ty-main">
+
+  <!-- LEFT -->
+  <div class="ty-left">
+    <div class="ty-left-bg"></div>
+    <div class="ty-lc">
+      <div class="ty-brand">LUXE<span>.</span></div>
+      <div class="ty-check">✓</div>
+      <div class="ty-eyebrow">Message Received</div>
+      <h1 class="ty-h1">Thank You,<br><em id="ty-name">there</em>!</h1>
+      <div class="ty-divider"></div>
+      <p class="ty-sub">Your enquiry is with our concierge team. We'll respond within <strong style="color:#fff">24 hours</strong> on business days.</p>
+      <div class="ty-btns">
+        <a href="luxe-store.html" class="btn-gold">← Back to Store</a>
+        <a href="luxe-store.html#products" class="btn-wout">Browse Collection</a>
       </div>
     </div>
   </div>
 
-  <!-- RIGHT: Submission details + tracking -->
-  <div class="right">
-    <div class="right-inner">
-      <p class="summary-title">Submission Summary</p>
+  <!-- RIGHT -->
+  <div class="ty-right">
+    <div class="ty-right-inner">
 
-      <!-- Detail card -->
-      <div class="detail-card">
-        <div class="detail-card-head">
-          <span class="dch-left">Reference ID</span>
-          <span class="dch-ref" id="refDisplay">—</span>
+      <p class="sum-label">Submission Summary</p>
+
+      <div class="d-card">
+        <div class="d-card-head">
+          <span class="dch-l">Tracking Reference</span>
+          <span class="dch-r" id="ty-ref">—</span>
         </div>
-        <div class="detail-rows">
-          <div class="detail-row">
-            <span class="dr-label">Name</span>
-            <span class="dr-val" id="dName">—</span>
-          </div>
-          <div class="detail-row">
-            <span class="dr-label">Email</span>
-            <span class="dr-val" id="dEmail">—</span>
-          </div>
-          <div class="detail-row" id="row-phone" style="display:none">
-            <span class="dr-label">Phone</span>
-            <span class="dr-val" id="dPhone">—</span>
-          </div>
-          <div class="detail-row">
-            <span class="dr-label">Topic</span>
-            <span class="dr-val" id="dTopic">—</span>
-          </div>
-          <div class="detail-row">
-            <span class="dr-label">Submitted</span>
-            <span class="dr-val" id="dTime">—</span>
-          </div>
-          <div class="detail-row">
-            <span class="dr-label">Source</span>
-            <span class="dr-val mono" id="dSource">—</span>
-          </div>
+        <div class="d-rows">
+          <div class="d-row"><span class="d-lbl">Name</span><span class="d-val" id="ty-fullname">—</span></div>
+          <div class="d-row"><span class="d-lbl">Email</span><span class="d-val" id="ty-email">—</span></div>
+          <div class="d-row" id="ty-phone-row" style="display:none"><span class="d-lbl">Phone</span><span class="d-val" id="ty-phone">—</span></div>
+          <div class="d-row"><span class="d-lbl">Topic</span><span class="d-val" id="ty-topic">—</span></div>
+          <div class="d-row"><span class="d-lbl">Submitted</span><span class="d-val" id="ty-time">—</span></div>
+          <div class="d-row"><span class="d-lbl">Source</span><span class="d-val chip" id="ty-source">contact_form / website</span></div>
         </div>
       </div>
 
-      <!-- Tracking URL info -->
       <div class="track-box">
-        <strong>🔍 Tracking URL</strong> — This page has a unique URL so you can track every submission:
-        <span class="track-url" id="trackUrl">loading…</span>
+        <div class="track-title">🔍 Unique Tracking URL — copy for analytics</div>
+        <span class="track-url" id="ty-url">—</span>
+        <button class="copy-btn" onclick="copyURL()">Copy URL</button>
       </div>
 
-      <!-- What happens next -->
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div>
-            <div class="step-title">Confirmation Email Sent</div>
-            <div class="step-desc">A copy of your enquiry has been sent to your inbox for your records.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div>
-            <div class="step-title">Team Review — Within 4 Hours</div>
-            <div class="step-desc">Our concierge team will review your message and prepare a personalised response.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div>
-            <div class="step-title">Personal Reply — Within 24 Hours</div>
-            <div class="step-desc">You'll receive a detailed reply at your provided email address.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-title">Confirmation Email Sent</div><div class="step-desc">A receipt of your enquiry has been sent to your inbox.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div><div class="step-title">Team Review — Within 4 Hours</div><div class="step-desc">Our concierge team will prepare a personalised response.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-title">Personal Reply — Within 24 Hours</div><div class="step-desc">You'll receive a detailed reply at your provided email.</div></div></div>
       </div>
 
     </div>
   </div>
-</main>
+
+</div>
+
+<div class="toast" id="toastEl"><span class="toast-dot"></span><span id="toastMsg"></span></div>
 
 <script>
-  /* ── READ URL PARAMS ── */
-  const p = new URLSearchParams(window.location.search);
+  const TOPIC_MAP = {
+    order:'Order & Delivery', product:'Product Enquiry',
+    returns:'Returns & Exchanges', styling:'Personal Styling',
+    press:'Press & Collaborations', other:'Other'
+  };
 
-  const ref     = p.get('ref')        || 'N/A';
-  const name    = p.get('name')       || 'Valued Guest';
-  const email   = p.get('email')      || '—';
-  const phone   = p.get('phone')      || '';
-  const topic   = p.get('topic')      || '—';
-  const ts      = p.get('ts')         || '';
-  const source  = p.get('utm_source') || 'direct';
-  const medium  = p.get('utm_medium') || '—';
-  const campaign= p.get('utm_campaign')|| '—';
+  const p        = new URLSearchParams(window.location.search);
+  const ref      = p.get('ref');
+  const name     = p.get('name')         || '';
+  const email    = p.get('email')        || '';
+  const phone    = p.get('phone')        || '';
+  const topic    = p.get('topic')        || '';
+  const ts       = p.get('ts')           || '';
+  const source   = p.get('utm_source')   || 'direct';
+  const medium   = p.get('utm_medium')   || '—';
 
-  /* Populate left panel */
-  const firstName = name.split(' ')[0];
-  document.getElementById('heroName').textContent = firstName;
+  // If no ref param = accessed directly, show guard
+  if (!ref) {
+    document.getElementById('guard').classList.add('show');
+    document.getElementById('ty-main').style.visibility = 'hidden';
+  } else {
+    // Left panel
+    document.getElementById('ty-name').textContent = name.split(' ')[0] || 'there';
 
-  /* Populate detail card */
-  document.getElementById('refDisplay').textContent = ref;
-  document.getElementById('dName').textContent      = name;
-  document.getElementById('dEmail').textContent     = email;
-  document.getElementById('dTopic').textContent     = topicLabel(topic);
-  document.getElementById('dSource').textContent    = source + ' / ' + medium + ' / ' + campaign;
+    // Right panel
+    document.getElementById('ty-ref').textContent      = ref;
+    document.getElementById('ty-fullname').textContent = name  || '—';
+    document.getElementById('ty-email').textContent    = email || '—';
+    document.getElementById('ty-topic').textContent    = TOPIC_MAP[topic] || topic || '—';
+    document.getElementById('ty-source').textContent   = source + ' / ' + medium;
 
-  if (phone) {
-    document.getElementById('dPhone').textContent = phone;
-    document.getElementById('row-phone').style.display = 'flex';
+    if (phone) {
+      document.getElementById('ty-phone').textContent       = phone;
+      document.getElementById('ty-phone-row').style.display = 'flex';
+    }
+
+    if (ts) {
+      try {
+        const d = new Date(ts);
+        document.getElementById('ty-time').textContent =
+          d.toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'}) +
+          ' at ' + d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+      } catch(_) { document.getElementById('ty-time').textContent = ts; }
+    }
+
+    // Show full URL in tracking box
+    document.getElementById('ty-url').textContent = window.location.href;
+
+    spawnConfetti();
   }
 
-  if (ts) {
-    try {
-      const d = new Date(ts);
-      document.getElementById('dTime').textContent =
-        d.toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'}) +
-        ' at ' +
-        d.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
-    } catch(_) { document.getElementById('dTime').textContent = ts; }
+  function copyURL() {
+    navigator.clipboard.writeText(window.location.href)
+      .then(()  => showToast('Tracking URL copied! ✓'))
+      .catch(()  => showToast('Copy the URL from your address bar.'));
   }
 
-  /* Show full tracking URL */
-  document.getElementById('trackUrl').textContent = window.location.href;
-
-  function topicLabel(val) {
-    const map = {
-      order:'Order & Delivery', product:'Product Enquiry',
-      returns:'Returns & Exchanges', styling:'Personal Styling',
-      press:'Press & Collaborations', other:'Other'
-    };
-    return map[val] || val;
+  let tt;
+  function showToast(msg) {
+    const el = document.getElementById('toastEl');
+    document.getElementById('toastMsg').textContent = msg;
+    el.classList.add('show');
+    clearTimeout(tt);
+    tt = setTimeout(() => el.classList.remove('show'), 2800);
   }
 
-  /* ── CONFETTI ── */
-  const colors = ['#b8860b','#d4a017','#f0d070','#2c2a26','#e8e2d8','#ffffff'];
-  const container = document.getElementById('confetti');
-  for (let i = 0; i < 65; i++) {
-    const d   = document.createElement('div');
-    d.className = 'dot';
-    const sz  = Math.random() * 9 + 4;
-    const dur = (Math.random() * 4 + 2.5).toFixed(2);
-    const del = (Math.random() * 3).toFixed(2);
-    d.style.cssText = `
-      left:${Math.random()*100}vw;
-      width:${sz}px;height:${sz}px;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      border-radius:${Math.random()>.45?'50%':'3px'};
-      animation-duration:${dur}s;
-      animation-delay:${del}s;
-      opacity:${(Math.random()*.5+.3).toFixed(2)};
-    `;
-    container.appendChild(d);
+  function spawnConfetti() {
+    const c = document.getElementById('confetti');
+    const colors = ['#b8860b','#d4a017','#f0d070','#2c2a26','#e8e2d8','#fff'];
+    for (let i = 0; i < 70; i++) {
+      const d  = document.createElement('div');
+      d.className = 'cdot';
+      const sz = (Math.random()*9+4).toFixed(1);
+      d.style.cssText = `
+        left:${(Math.random()*100).toFixed(1)}vw;
+        width:${sz}px;height:${sz}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        border-radius:${Math.random()>.45?'50%':'2px'};
+        animation-duration:${(Math.random()*4+2.5).toFixed(2)}s;
+        animation-delay:${(Math.random()*3).toFixed(2)}s;
+        opacity:${(Math.random()*.55+.3).toFixed(2)};
+      `;
+      c.appendChild(d);
+    }
   }
 </script>
 </body>
